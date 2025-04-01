@@ -1,11 +1,11 @@
 # web-browser-engineering-zh
 
-    目前在学习浏览器工作原理，自学自译。
-    仅供学习，不用于商业用途。
-    原文地址：![Web Browser Engineering](https://web-browser-engineering.com/)
+目前在学习浏览器工作原理，自学自译。
+仅供学习，不用于商业用途。
+原文地址：[Web Browser Engineering](https://web-browser-engineering.com/)
 
-    网络浏览器工程 Web Browser Engineering 
-    by Pavel Panchekha & Chris Harrelson
+网络浏览器工程 Web Browser Engineering 
+by Pavel Panchekha & Chris Harrelson
 
 ## 介绍
 
