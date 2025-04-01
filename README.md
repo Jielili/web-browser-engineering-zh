@@ -2,7 +2,7 @@
 
     目前在学习浏览器工作原理，自学自译。
     仅供学习，不用于商业用途。
-    原文地址：https://browser.engineering/
+    原文地址：![Web Browser Engineering](https://web-browser-engineering.com/)
 
     网络浏览器工程 Web Browser Engineering 
     by Pavel Panchekha & Chris Harrelson
@@ -47,6 +47,7 @@
     16. 重用先前的计算-失效、编辑和正确性
 
 ### 总结
+
     A. 没有包括的内容
     B. 变化的环境
 
