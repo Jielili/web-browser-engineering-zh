@@ -14,7 +14,7 @@ Parts 1–3 of this book construct a basic browser weighing in at around 1000 li
 这本书的1-3部分构建了一个基本浏览器，大约1000行代码。练习后的代码量大概是两倍。对于有几年编程经验的人来说，平均每章需要4-6个小时来阅读，实施和调试。这本书的第4部分涵盖了高级话题；这些章节更长，代码更多。最终的浏览器大约有3000行代码。
 
 
-Your browser will “work” at each step of the way, and every chapter will build upon the last.This idea is from J. R. Wilcox, inspired in turn by S. Zdancewic’s course on compilers. That way, you will also practice growing and improving complex software. If you feel particularly interested in some component, please do flesh it out, complete the exercises, and add missing features. We’ve tried to arrange it so that this doesn’t make later chapters more difficult.
+Your browser[1] will “work” at each step of the way, and every chapter will build upon the last.[2]This idea is from J. R. Wilcox, inspired in turn by S. Zdancewic’s course on compilers. That way, you will also practice growing and improving complex software. If you feel particularly interested in some component, please do flesh it out, complete the exercises, and add missing features. We’ve tried to arrange it so that this doesn’t make later chapters more difficult.
 
 你的浏览器每一步都会“工作”。每一章都在上一章基础上构建。这个想法来自于 J. R. Wilcox，是受 S. Zdancewic 的编译器课程的启发。这样，你也可以练习如何扩展迭代和改进复杂的软件。如果你对某个组件特别感兴趣，请务必将其完善，完成练习，添加缺失的功能。我们希望这样的安排不会让后面的章节更难。
 
@@ -54,3 +54,14 @@ Chris：我永远感激我的妻子 Sara，她耐心地倾听我关于 Web 的�
 This book is, and will remain, a work in progress. Please leave comments and mark typos; the book has built-in feedback tools, which you can enable with Ctrl-E (or Cmd-E on a Mac). The full source code is also available on GitHub, though we prefer to receive comments through the built-in tools.
 
 本书是一个不断进步的作品，并将继续保持这种状态。请留下评论并标记错别字；本书内置了反馈工具，您可以通过按 Ctrl-E（或 Mac 上的 Cmd-E）启用。完整的源代码也可以在 [GitHub](https://github.com/browserengineering/book) 上找到，尽管我们更倾向于通过内置工具接收评论。
+
+
+
+[1]This book assumes that you will be building a web browser along the way while reading it. However, it does present nearly all the code—inlined into the book—for a working browser for every chapter. So most of the time, the book uses the term “our browser”, which refers to the conceptual browser we (you and us, the authors) have built so far. In cases where the book is referring specifically to the implementation you have built, the book says “your browser”.
+本书假设你在阅读的过程中会一路构建一个网页浏览器。然而，它几乎在每一章中都呈现了完整的代码——直接嵌入在书中——用来实现一个可工作的浏览器。因此，大部分时候，书中使用'我们的浏览器'这个术语，指的是我们（你和我们，作者）到目前为止构建的概念性浏览器。在书中特别提到你所构建的实现时，则使用'你的浏览器'。
+
+[2]This idea is from J. R. Wilcox, inspired in turn by S. Zdancewic’s course on compilers.
+这个想法来自于 J. R. Wilcox，是受 S. Zdancewic 的编译器课程的启发。
+
+[3]This is for clarity. On some operating systems, python means Python 3, but on others that means Python 2. Check which version you have!
+这是为了清晰起见。在某些操作系统上，python 意味着 Python 3，但在其他操作系统上则意味着 Python 2。检查你拥有的版本！
