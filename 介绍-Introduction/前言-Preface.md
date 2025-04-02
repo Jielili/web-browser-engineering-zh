@@ -1,32 +1,32 @@
 # 前言 preface
 A computer science degree traditionally includes courses in operating systems, compilers, and databases that replace mystery with code. These courses transform Linux, Postgres, and LLVM into improvements, additions, and optimizations of an understandable core architecture. The lesson transcends the specific system studied: all computer systems, no matter how big and seemingly complex, can be studied and understood.
 
-一个计算机科学学位传统上包括操作系统，编译原理，数据库等课程，这些课程用代码揭开了神秘。它们让 Linux、Postgres 和 LLVM 不再是黑箱，而是可以改进、扩展和优化的可理解核心架构。这一教训超越了所研究的特定系统：所有计算机系统，不管多大多复杂，都可以被理解和研究。
+一个计算机科学学位传统上包括操作系统，编译原理，数据库等课程，这些课程用代码揭开了神秘。它们让 Linux、Postgres 和 LLVM 不再是黑箱，而是可以改进、扩展和优化的可理解核心架构。这些课程教授的原理不仅适用于具体的系统（如 Linux、Postgres、LLVM），更重要的是，它们揭示了所有计算机系统的基本规律。因此，任何计算机系统，无论多么庞大或复杂，都可以被研究和理解。
 
 
 But web browsers are still opaque, not just to students but to industry programmers and even to researchers. This book dissipates that mystery by systematically explaining all major components of a modern web browser.
 
-但是网络浏览器仍然是一团迷雾，不管对学生还是对行协程序员，甚至对研究人员也是如此。这本苏通过系统的解释现代网络浏览器的所有主要组件，来消除这种神秘感。
+但是网络浏览器仍然是一团迷雾，不管对学生还是对行业程序员，甚至对研究人员也是如此。本书通过系统地解释现代网络浏览器的所有主要组件，来消除这种神秘感。
 
 ## 阅读本书 Reading this book
 Parts 1–3 of this book construct a basic browser weighing in at around 1000 lines of code, twice that after exercises. The average chapter takes 4–6 hours to read, implement, and debug for someone with a few years’ programming experience. Part 4 of this book covers advanced topics; those chapters are longer and have more code. The final browser weighs in at about 3000 lines.
 
-这本书的1-3部分构建了一个基本浏览器，大约1000行代码。联系后的代码量大概是两倍。对于有几年变成经验的人来说，里面平均每章需要4-6个小时来阅读，实施和调试。这本书的第四部分涵盖了高级话题；这些章节更长，代码更多。最终的浏览器大约有3000行代码。
+这本书的1-3部分构建了一个基本浏览器，大约1000行代码。练习后的代码量大概是两倍。对于有几年编程经验的人来说，平均每章需要4-6个小时来阅读，实施和调试。这本书的第4部分涵盖了高级话题；这些章节更长，代码更多。最终的浏览器大约有3000行代码。
 
 
 Your browser will “work” at each step of the way, and every chapter will build upon the last.This idea is from J. R. Wilcox, inspired in turn by S. Zdancewic’s course on compilers. That way, you will also practice growing and improving complex software. If you feel particularly interested in some component, please do flesh it out, complete the exercises, and add missing features. We’ve tried to arrange it so that this doesn’t make later chapters more difficult.
 
-你的浏览器每一步都会“工作”。每一章都在上一个基础上构建。这个想法来自于J. R. Wilcox，是受S. Zdancewic的编译器课程的启发。这样，你也可以练习如何迭代和改进复杂的软件。如果你对某个组件特别感兴趣，请务必将其完善，完成练习，添加缺失的功能。我们希望这样的安排不会让后面的章节更难。
+你的浏览器每一步都会“工作”。每一章都在上一章基础上构建。这个想法来自于 J. R. Wilcox，是受 S. Zdancewic 的编译器课程的启发。这样，你也可以练习如何扩展迭代和改进复杂的软件。如果你对某个组件特别感兴趣，请务必将其完善，完成练习，添加缺失的功能。我们希望这样的安排不会让后面的章节更难。
 
 
 The code in this book uses Python 3, and we recommend you follow along in the same. When the book shows Python command lines, it calls the Python binary python3.[3] That said, the text avoids dependencies where possible and you can try to follow along in another language. Make sure your language has libraries for TLS connections (Python has one built in), graphics (the text uses Tk, Skia, and SDL), and JavaScript evaluation (the text uses DukPy).
 
-这本书的代码用Python3编写，我们建议你也用Python3。当这本书展示Python代码行，它调用的Python可执行文件是 python3.[3]。尽管如此，书中尽量避免依赖，你可以尝试用其他语言来实现。确保你的语言支持以下库：TLS链接（Python内置了一个），图形（书中使用TK，Skia和SDL），和JavaScript评估（书中内容使用DukPy）。
+这本书的代码用Python3编写，我们建议你也用Python3。当这本书展示Python代码行时，它调用的Python可执行文件是 python3.[3]。尽管如此，书中尽量避免依赖，所以你可以尝试用其他语言来实现。确保你的语言支持以下库：TLS链接（Python内置了一个），图形（书中使用TK，Skia和SDL），和JavaScript评估（书中内容使用DukPy）。
 
 
 This book’s browser is irreverent toward standards: it handles only a sliver of the full HTML, CSS, and JavaScript languages, mishandles errors, and isn’t resilient to malicious inputs. It is also quite slow. Despite that, its architecture matches that of real browsers, providing insight into those 10 million line of code behemoths.
 
-本书的浏览器不把标准放在眼里：它只处理了HTML，CSS和JavaScript语言的一小部分，处理错误的方式不严谨，对恶意的输入也缺乏抵抗力。此外，它运行速度很慢。尽管如此，它的架构与真正的浏览器相匹配，能够帮助理解那些动辄上千万行代码的庞然大物。
+本书的浏览器不拘泥于标准：它只处理了HTML，CSS和JavaScript语言的一小部分，处理错误的方式不严谨，对恶意的输入也缺乏抵抗力。此外，它运行速度很慢。尽管如此，它的架构与真正的浏览器相匹配，能够帮助理解那些动辄上千万行代码的庞然大物。
 
 
 That said, we’ve tried to explicitly note when the book’s browser simplifies or diverges from standards. If you’re not sure how your browser should behave in some edge case, fire up your favorite web browser and try it out.
